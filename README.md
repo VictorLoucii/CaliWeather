@@ -26,7 +26,7 @@ CaliWeather is a sleek, modern, and intuitive weather forecast application built
 
 | Home Screen                                | 7-Day Forecast                               | Location Search                             | Side Menu                                  |
 | :----------------------------------------- | :------------------------------------------- | :------------------------------------------ | :----------------------------------------- |
-| ![Home Screen](./assets/demo/1.jpeg)       | ![7-Day Forecast](./assets/demo/2.jpeg)      | ![Location Search](./assets/demo/3.jpeg)    | ![Side Menu](./assets/demo/4.jpeg)         |
+| ![Home Screen](./assets/demo/1.jpeg)       | ![Details Screen 1](./assets/demo/2.jpeg)      | ![Details Screen 2](./assets/demo/3.jpeg)    | ![Update Screen](./assets/demo/4.jpeg)         |
 
 ---
 
