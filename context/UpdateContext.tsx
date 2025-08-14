@@ -9,7 +9,7 @@ interface UpdateContextType {
   latestVersion: string | null;
 }
 
-const VERSION_CHECK_URL = 'https://gist.githubusercontent.com/VictorLoucii/e473c402d13451c2697c2a593e2ccb35/raw/4fc325195358dde0a72fbec724fbb0bfbd453adc/version.json';
+const VERSION_CHECK_URL = 'https://gist.githubusercontent.com/VictorLoucii/e473c402d13451c2697c2a593e2ccb35/raw/d165b4ac2b414b59dd670d7cbea825a1393b2b7a/version.json';
 
 export const UpdateContext = createContext<UpdateContextType | undefined>(undefined);
 

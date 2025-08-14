@@ -2,7 +2,7 @@
   "expo": {
     "name": "CaliWeather",
     "slug": "CaliWeather",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/new-icon.png",
     "scheme": "caliweather",
@@ -40,7 +40,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/new-adaptive-icon.png",
+          "image": "./assets/images/new-splash.png",
           "resizeMode": "contain",
           "backgroundColor": "#6A3DE8"
         }
