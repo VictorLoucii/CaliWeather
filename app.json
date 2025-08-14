@@ -4,7 +4,7 @@
     "slug": "CaliWeather",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/new-icon.png",
     "scheme": "caliweather",
     "userInterfaceStyle": "automatic",
     "runtimeVersion": {
@@ -20,8 +20,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/new-adaptive-icon.png",
+        "backgroundColor": "#6A3DE8"
       },
       "edgeToEdgeEnabled": true,
       "package": "com.kwickslow30.CaliWeather",
@@ -40,10 +40,9 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
+          "image": "./assets/images/new-adaptive-icon.png",
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#6A3DE8"
         }
       ],
       [

@@ -1,3 +1,4 @@
+// app/_layout.tsx:
 //this file is the entry point of the app
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -24,13 +25,12 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-      {/* in expo router index.tsx is designated as the initialRouteName */}
+        {/* in expo router index.tsx is designated as the initialRouteName */}
+        {/* below screen points to the drawer layout and all screens within it */}
+        <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+        {/* details screen remains a part of the stack */}
         <Stack.Screen name="details" options={{ headerShown: false }} />
-        <Stack.Screen name="index" options={{ headerShown: false }} />
 
-
-
-        <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
