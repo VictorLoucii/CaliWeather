@@ -8,8 +8,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 // Setting to null when not yet available for production or when sideloading/testing
-const APP_STORE_URL = null; // 'https://apps.apple.com/us/app/your-app/id1234567890';
-const PLAY_STORE_URL = null; // 'https://play.google.com/store/apps/details?id=com.yourapp.id';
+// const APP_STORE_URL = null; // 'https://apps.apple.com/us/app/your-app/id1234567890';
+// const PLAY_STORE_URL = null; // 'https://play.google.com/store/apps/details?id=com.yourapp.id';
 
 
 export default function UpdateScreen() {
@@ -17,26 +17,27 @@ export default function UpdateScreen() {
     const navigation = useNavigation();
     const insets = useSafeAreaInsets();
 
-    const { updateAvailable, latestVersion } = useUpdate();
+    // const { updateAvailable, latestVersion } = useUpdate();
+    const { updateAvailable, latestVersion, downloadUrl } = useUpdate();
     const currentVersion = Application.nativeApplicationVersion;
 
     // DEBUG LINE: Add this log to see what the component receives
-    console.log('[UpdateScreen] Rendering with values:', JSON.stringify({ updateAvailable, latestVersion }, null, 2));
-
+    console.log('[UpdateScreen] Rendering with values:', JSON.stringify({ updateAvailable, latestVersion, downloadUrl }, null, 2));
 
     // Determine the correct update URL based on the OS
-    const updateUrl = Platform.OS === 'ios' ? APP_STORE_URL : PLAY_STORE_URL;
+    // const updateUrl = Platform.OS === 'ios' ? APP_STORE_URL : PLAY_STORE_URL;
 
     // THIS IS THE EVENT HANDLER. IT ONLY CONTAINS LOGIC.
     const handleUpdate = () => {
         try {
             // Only try to open a link if the URL is valid
-            if (updateUrl) {
-                Linking.openURL(updateUrl);
+            if (downloadUrl) {
+                Linking.openURL(downloadUrl);
             }
         }
         catch (error) {
-            console.error('error:', error);
+            // warning for debugging, in case the URL is missing
+            console.warn("Update button was pressed, but no downloadUrl is available.");
         }
     }
 
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
         left: 20,
         zIndex: 10, // Ensure it's on top
     },
-    title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20, color:'white' },
-    text: { fontSize: 16, marginBottom: 10, color:'white' },
+    title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20, color: 'white' },
+    text: { fontSize: 16, marginBottom: 10, color: 'white' },
     updateText: { color: 'white', fontWeight: 'bold' },
 });

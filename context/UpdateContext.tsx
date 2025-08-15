@@ -7,9 +7,11 @@ import * as Application from 'expo-application';
 interface UpdateContextType {
   updateAvailable: boolean;
   latestVersion: string | null;
+  downloadUrl: string | null; // To hold the URL from the Gist
 }
 
-const VERSION_CHECK_URL = 'https://gist.githubusercontent.com/VictorLoucii/e473c402d13451c2697c2a593e2ccb35/raw/d165b4ac2b414b59dd670d7cbea825a1393b2b7a/version.json';
+// right click on the raw button in gist file and paste it somewhere, then remove the commit hash(i.e the no.s and letters after raw/...../) from the link and then paste/put it here:
+const VERSION_CHECK_URL = 'https://gist.githubusercontent.com/VictorLoucii/e473c402d13451c2697c2a593e2ccb35/raw/version.json';
 
 export const UpdateContext = createContext<UpdateContextType | undefined>(undefined);
 
@@ -50,6 +52,9 @@ export const UpdateProvider = ({ children }: { children: ReactNode }) => {
 
   const [updateAvailable, setUpdateAvailable] = useState(false);
   const [latestVersion, setLatestVersion] = useState<string | null>(null);
+  const [downloadUrl, setDownloadUrl] = useState<string | null>(null); 
+
+
 
   useEffect(() => {
     const checkForUpdates = async () => {
@@ -61,8 +66,12 @@ export const UpdateProvider = ({ children }: { children: ReactNode }) => {
         console.log("2. Data received from server:", JSON.stringify(data, null, 2)); //DEBUG 
 
         const fetchedLatestVersion = data.latestVersion;
+        const fetchedDownloadUrl = data.downloadUrl; //Get the URL from the JSON data
+
 
         setLatestVersion(fetchedLatestVersion); // Store the latest version
+        setDownloadUrl(fetchedDownloadUrl); // Store the URL in state
+
 
         const currentVersion = Application.nativeApplicationVersion;
 
@@ -89,7 +98,8 @@ export const UpdateProvider = ({ children }: { children: ReactNode }) => {
   }, []); // Runs once on app start
 
   return (
-    <UpdateContext.Provider value={{ updateAvailable, latestVersion }}>
+    // Pass the new downloadUrl in the provider's value
+    <UpdateContext.Provider value={{ updateAvailable, latestVersion, downloadUrl }}>
       {children}
     </UpdateContext.Provider>
   );
