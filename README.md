@@ -49,6 +49,9 @@ CaliWeather is a sleek, modern, and intuitive weather forecast application built
 
 ## OTA Update Mechanism
 
-This app implements **Over-the-Air (OTA)** updates using **Expo's EAS Update** service. This allows for instant bug fixes and feature rollouts without requiring users to download a new version from the app store.
+CaliWeather uses **Expo's EAS Update** service to deliver **Over-the-Air (OTA)** updates, allowing you to receive new features and bug fixes instantly — without reinstalling the app from the app store.
 
-The update manifest, which tells the app if a new version is available, is hosted on a public **GitHub Gist**. The app fetches this manifest on launch to check for new updates and downloads them in the background.
+- The **update manifest** (containing the latest version info) is hosted on a public **GitHub Gist**.
+- On app launch, CaliWeather checks this manifest and downloads updates in the background if a new version is available.
+- For full releases, the latest **.apk file** is published on the app’s **GitHub Releases** page.
+- Builds are created using **React Native with Expo EAS** to ensure smooth deployment and consistent performance across devices.
